@@ -19,7 +19,7 @@ panel_iframe:
   aria2:
     title: Aria2
     icon: mdi:cloud-download
-    url: https://your_domain.duckdns.org:6882
+    url: https://your_domain.duckdns.org:688
 
 
 
