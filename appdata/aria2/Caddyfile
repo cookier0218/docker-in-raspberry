@@ -1,5 +1,5 @@
 #請修改成自己的Domain 及IP
-https://your_domain.duckdns.org:6802 {      
+https://your_domain.duckdns.org:6801 {      
     tls /ssl/fullchain.pem /ssl/privkey.pem {                            
         alpn http/1.1                                                    
     }                    
@@ -11,7 +11,7 @@ https://your_domain.duckdns.org:6802 {
     errors stderr
 }
 
-https://your_domain.duckdns.org:6882 {      
+https://your_domain.duckdns.org:6881 {      
     tls /ssl/fullchain.pem /ssl/privkey.pem {                            
         alpn http/1.1                                                    
     }                    
