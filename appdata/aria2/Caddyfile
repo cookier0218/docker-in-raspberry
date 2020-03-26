@@ -1,0 +1,24 @@
+#請修改成自己的Domain 及IP
+https://your_domain.duckdns.org:6802 {      
+    tls /ssl/fullchain.pem /ssl/privkey.pem {                            
+        alpn http/1.1                                                    
+    }                    
+    proxy / 192.168.31.84:6800 {
+        transparent
+        websocket
+    }
+    log stdout
+    errors stderr
+}
+
+https://your_domain.duckdns.org:6882 {      
+    tls /ssl/fullchain.pem /ssl/privkey.pem {                            
+        alpn http/1.1                                                    
+    }                    
+    proxy / http://192.168.31.84:6880/ui {
+        transparent
+        websocket
+    }
+    log stdout
+    errors stderr
+}
