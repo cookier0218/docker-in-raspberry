@@ -6,7 +6,7 @@ services:
     network_mode: bridge
     environment:
       - USERNAME=admin
-      - PASSWORD=adminpassword
+      - PASSWORD=password
       - TZ=Asia/Taipei
     ports:
       - "9091:9091"
