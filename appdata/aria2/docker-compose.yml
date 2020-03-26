@@ -1,0 +1,17 @@
+version: "2"
+services:
+  aria2:
+    image: wahyd4/aria2-ui:arm32
+    container_name: aria2
+    network_mode: bridge
+    environment:
+      - RPC_SECRET=justplus
+      - TZ=Asia/Taipei
+    ports:
+      - "6443:443"
+      - "6800:6800"
+      - "6880:80"
+    volumes:
+      - /home/pi/data500/sync/aria2:/data
+      - ./sslkey/:/root/conf/key
+    restart: always
