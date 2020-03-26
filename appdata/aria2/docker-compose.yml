@@ -5,13 +5,13 @@ services:
     container_name: aria2
     network_mode: bridge
     environment:
-      - RPC_SECRET=justplus
+      - RPC_SECRET=password
       - TZ=Asia/Taipei
     ports:
       - "6443:443"
       - "6800:6800"
       - "6880:80"
     volumes:
-      - /home/pi/data500/sync/aria2:/data
+      - /home/pi/ssd/sync/aria2:/data
       - ./sslkey/:/root/conf/key
     restart: always
