@@ -27,18 +27,3 @@ services:
     ports:
       - 9117:9117
     restart: unless-stopped
-  transmission:
-    image: jaymoulin/rpi-transmission
-    container_name: transmission
-    network_mode: bridge
-    environment:
-      - USERNAME=admin
-      - PASSWORD=justplus
-      - TZ=Asia/Taipei
-    ports:
-      - "9091:9091"
-      - "51413:51413"
-    volumes:
-      - /home/pi/ssd/downloads/files:/output
-      - /home/pi/ssd/downloads/incoming:/to_download
-    restart: always
