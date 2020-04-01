@@ -1,0 +1,28 @@
+version: "2"
+services:
+  mariadb:
+    image: linuxserver/mariadb:arm32v7-latest
+    container_name: mariadb
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - MYSQL_ROOT_PASSWORD=password
+      - TZ=Asia/Taipei
+    volumes:
+      - ./config:/config
+    ports:
+      - 3306:3306
+    restart: always
+  nextcloud:
+    image: linuxserver/nextcloud:arm32v7-latest
+    container_name: nextcloud
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Asia/Taipei
+    volumes:
+      - ./config:/config
+      - /home/pi/ssd/nextcloud_data/data:/data
+    ports:
+      - 7443:443
+    restart: always
