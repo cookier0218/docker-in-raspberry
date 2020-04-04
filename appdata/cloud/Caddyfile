@@ -1,0 +1,37 @@
+#Raspberry pi4 nextcloud
+https://your_domain:7777 {
+    tls /ssl/fullchain.pem /ssl/privkey.pem {                            
+        alpn http/1.1                                                    
+    } 
+    proxy / https://your_IP:7443 {
+        insecure_skip_verify
+        transparent
+        header_downstream Strict-Transport-Security "max-age=15768000; includeSubdomains;"
+    }
+    log stdout
+    errors stderr
+     # client support (e.g. os x calendar / contacts)
+    redir /.well-known/carddav /remote.php/carddav 301
+    redir /.well-known/caldav /remote.php/caldav 301
+    # checks for images
+        rewrite {
+            ext .svg .gif .png .html .ttf .woff .ico .jpg .jpeg
+        r ^/index.php/(.+)$
+        to /{1} /index.php?{1}
+    }
+
+    rewrite {
+        r ^/index.php/.*$
+        to /index.php?{query}
+    }
+
+    # .htaccess / data / config / ... shouldn‘t be accessible from outside
+    status 403 {
+        /.htaccess
+        /data
+        /config
+        /db_structure
+        /.xml
+        /README
+    }
+}
