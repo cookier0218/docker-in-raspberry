@@ -22,7 +22,7 @@ services:
       - TZ=Asia/Taipei
     volumes:
       - ./config:/config
-      - /home/pi/ssd/nextcloud_data/data:/data
+      - /home/pi/ssd/nextcloud/data:/data
     ports:
       - 7443:443
     restart: always
